@@ -12,11 +12,21 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/storage"
+	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
 
+type largeTheme struct {
+	fyne.Theme
+}
+
+func (t *largeTheme) Size(name fyne.ThemeSizeName) float32 {
+	return t.Theme.Size(name) * 1.3
+}
+
 func main() {
 	a := app.NewWithID("com.github.benelog.bank-sheet")
+	a.Settings().SetTheme(&largeTheme{Theme: theme.DefaultTheme()})
 	w := a.NewWindow("통장 거래내역 변환기")
 	w.Resize(fyne.NewSize(600, 400))
 
