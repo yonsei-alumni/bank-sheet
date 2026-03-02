@@ -35,12 +35,7 @@ func ParseShinhanMoim(r io.Reader) ([]Transaction, error) {
 
 	var transactions []Transaction
 
-	panel := doc.Find("div[role='tabpanel']").First()
-	if panel.Length() == 0 {
-		return nil, fmt.Errorf("거래 내역 탭을 찾을 수 없습니다")
-	}
-
-	panel.Find("div.border-secondary").Each(func(i int, dateDiv *goquery.Selection) {
+	doc.Find("div.border-secondary").Each(func(i int, dateDiv *goquery.Selection) {
 		dateText := strings.TrimSpace(dateDiv.Text())
 		if !datePattern.MatchString(dateText) {
 			return
@@ -122,7 +117,7 @@ func parseWon(s string) (int64, error) {
 	}
 
 	negative := strings.Contains(s, "-")
-	s = strings.NewReplacer("+", "", "-", "", "원", "", ",", "", " ", "").Replace(s)
+	s = strings.NewReplacer("+", "", "-", "", "원", "", ",", "", " ", "", "잔액", "").Replace(s)
 	n, err := strconv.ParseInt(strings.TrimSpace(s), 10, 64)
 	if err != nil {
 		return 0, fmt.Errorf("금액 변환 실패: %q", s)
