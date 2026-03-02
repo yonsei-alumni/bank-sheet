@@ -23,3 +23,8 @@ https://ifttt.com/ 를  활용하면 가능한 방법입니다.
 ## Claude in Chrome (불가능)
 신한은행 모바일 페이지에서 'Claude in Chrome' extension을 열면 '이 페이지에 액세스할 수 없습니다
 Claude는 이 페이지의 콘텐츠를 지원할 수 없습니다.'라는 메시지만 나옵니다.
+
+## 오픈뱅킹 API (가능할 수도 있으니 시간과 노력이 과도하게 들어감)
+
+* 오픈뱅킹 API( https://developers.kftc.or.kr/dev/openapi/open-banking/oauth )를 통해서 Server to Server API를 호출하는 방법도 검토했으나, 행정적으로 복잡한 절차가 필요해보입니다.
+테스트용으로 발급받는 키로는 실계좌에 접근이 되지 않습니다.
