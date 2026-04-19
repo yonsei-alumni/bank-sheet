@@ -1,3 +1,7 @@
 /dist/
 .claude/
 bank-sheet
+/shinhan-profile/
+# App output folders are named YYYYMMDD and contain real donor data — never commit.
+/20*/
+
